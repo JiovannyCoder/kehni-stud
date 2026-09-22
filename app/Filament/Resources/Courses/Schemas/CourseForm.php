@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Courses\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -15,15 +16,18 @@ class CourseForm
                     ->required(),
                 TextInput::make('code')
                     ->required(),
-                TextInput::make('teacher_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('field_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('academic_year_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('teacher_id')
+                    ->relationship(name: 'teacher', titleAttribute: 'name')
+                    ->preload()
+                    ->required(),
+                Select::make('field_id')
+                    ->relationship(name: 'field', titleAttribute: 'name')
+                    ->preload()
+                    ->required(),
+                Select::make('academic_year_id')
+                    ->relationship(name: 'academicYear', titleAttribute: 'name')
+                    ->preload()
+                    ->required(),
             ]);
     }
 }

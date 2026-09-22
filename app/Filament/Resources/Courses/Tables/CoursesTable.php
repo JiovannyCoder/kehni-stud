@@ -19,15 +19,12 @@ class CoursesTable
                     ->searchable(),
                 TextColumn::make('code')
                     ->searchable(),
-                TextColumn::make('teacher_id')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('field_id')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('academic_year_id')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('teacher.name')
+                    ->label('Teacher'),
+                TextColumn::make('field.name')
+                    ->label('Field'),
+                TextColumn::make('academicYear.name')
+                    ->label('Academic Year'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

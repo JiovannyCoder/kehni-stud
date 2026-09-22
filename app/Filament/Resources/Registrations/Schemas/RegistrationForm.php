@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Registrations\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -12,19 +13,19 @@ class RegistrationForm
     {
         return $schema
             ->components([
-                TextInput::make('student_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('academic_year_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('field_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('status')
-                    ->required()
-                    ->default('pending'),
-                DateTimePicker::make('registered_at')
+                Select::make('student_id')
+                    ->relationship(name: 'student', titleAttribute: 'first_name')
+                    ->preload()
+                    ->searchable()
+                    ->required(),
+                Select::make('academic_year_id')
+                    ->relationship(name: 'academicYear', titleAttribute: 'name')
+                    ->preload()
+                    ->required(),
+                Select::make('field_id')
+                    ->relationship(name: 'field', titleAttribute: 'name')
+                    ->preload()
+                    ->searchable()
                     ->required(),
             ]);
     }

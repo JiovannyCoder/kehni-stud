@@ -15,15 +15,12 @@ class RegistrationsTable
     {
         return $table
             ->columns([
-                TextColumn::make('student_id')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('academic_year_id')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('field_id')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('student.first_name')
+                    ->label('Student'),
+                TextColumn::make('academicYear.name')
+                   ->label('Academic Year'),
+                TextColumn::make('field.name')
+                   ->label('Study Field'),
                 TextColumn::make('status')
                     ->searchable(),
                 TextColumn::make('registered_at')

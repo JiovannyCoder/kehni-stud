@@ -11,12 +11,12 @@ class RegistrationInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('student_id')
-                    ->numeric(),
-                TextEntry::make('academic_year_id')
-                    ->numeric(),
-                TextEntry::make('field_id')
-                    ->numeric(),
+                TextEntry::make('student.first_name')
+                    ->label('Student'),
+                TextEntry::make('academicYear.name')
+                    ->label('Academic Year'),
+                TextEntry::make('field.name')
+                    ->label('Field'),
                 TextEntry::make('status'),
                 TextEntry::make('registered_at')
                     ->dateTime(),

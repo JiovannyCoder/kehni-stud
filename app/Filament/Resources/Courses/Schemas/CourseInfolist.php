@@ -13,12 +13,9 @@ class CourseInfolist
             ->components([
                 TextEntry::make('name'),
                 TextEntry::make('code'),
-                TextEntry::make('teacher_id')
-                    ->numeric(),
-                TextEntry::make('field_id')
-                    ->numeric(),
-                TextEntry::make('academic_year_id')
-                    ->numeric(),
+                TextEntry::make('teacher.name')->label('Teacher'),
+                TextEntry::make('field.name')->label('Field'),
+                TextEntry::make('academicYear.name')->label('Academic Year'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
